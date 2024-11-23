@@ -1,0 +1,10 @@
+helm install grafana grafana/grafana \
+  --namespace grafana \
+  --set enterprise.enabled=true \
+  --set enterprise.license.secretName=grafana-license \
+  --set enterprise.license.secretKey=license.jwt \
+  --set adminPassword=admin \
+  --set service.type=NodePort \
+  --set service.nodePort=32000 \
+  --set image.repository=grafana/grafana-enterprise \
+  --set persistence.enabled=true
