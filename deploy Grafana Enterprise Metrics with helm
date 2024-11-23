@@ -1,0 +1,11 @@
+helm install gem grafana/mimir-distributed \
+  --namespace gem \
+  --set enterprise.enabled=true \
+  --set enterprise.legacyLabels=true \
+  --set license.contents=null \
+  --set license.external=true \
+  --set license.secretName=gem-license \
+  --set license.secretKey=license.jwt \
+  --set mimir.structuredConfig.cluster_name=minikube \
+  --set gateway.service.type=NodePort \
+  --set gateway.service.nodePort=32001
